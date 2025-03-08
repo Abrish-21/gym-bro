@@ -8,8 +8,8 @@ import Footer from './layouts/Footer'
 
 function App() {
   return (
-  <>
-  <section className='w-64'> 
+  <div className=''>
+  <section className='w-full md:w-1/2'> 
     <NavBar/>
   </section>
     <Routes>
@@ -20,7 +20,7 @@ function App() {
     <Footer/>
    
     
- </> )
+ </div> )
 }
 
 export default App
