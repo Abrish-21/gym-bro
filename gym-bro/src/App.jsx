@@ -8,7 +8,7 @@ import Footer from './layouts/Footer'
 
 function App() {
   return (
-  <div className=''>
+  <div className='scrollbar-hide'>
   <section className='w-full md:w-1/2'> 
     <NavBar/>
   </section>
