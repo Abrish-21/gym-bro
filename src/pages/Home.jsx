@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import searchExercise from '../components/SearchExercise'
+import SearchExercise from '../components/SearchExercise'
+
 
 
 function Home() {
+const [search, setSearch] = useState('')
+const [bodyPart, setBodyPart] = useState([])
+
+
+
+
+
   return (<>
   {/* hero section */}
   <section className=' '>
@@ -34,6 +44,10 @@ function Home() {
           <input className='outline-none border-2 border-gray-300 px-6 py-4 w-3/4' placeholder='Search Exercise' type="text" name="" id="" />
           <button className='bg-rose-600 px-4 py-2'>Search</button>
          </div>
+      </section>
+
+      <section>
+       <SearchExercise/>
       </section>
   </section>
 
