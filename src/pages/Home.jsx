@@ -3,6 +3,7 @@ import searchExercise from '../components/SearchExercise'
 import SearchExercise from '../components/SearchExercise'
 import BodyParts from '../components/BodyParts'
 import Users from '../utils/User'
+import Exercise from './Exercise'
 // import { fetchData } from '../utils/fetchData'
 
 const names = ['abrham', 'james','cole','sami']
@@ -49,16 +50,16 @@ const [bodyPart, setBodyPart] = useState([])
          </div>
       </section>
 
-      <section>
+      <section className='mb-10'>
        <SearchExercise/>
       </section>
-      {/* <section>
-        <p>This is the bodyPart section</p>
-        {Users.map((item)=>{
-          return  <BodyParts name = {item} />
-          
-        })}
-      </section> */}
+     <section id='exercise' className=' mt-20 flex flex-col gap-10 '>
+      <div className="flex flex-col gap-10 py-10 justify-start items-center ">
+        <p className='text-3xl'>Explore your Exercise</p>
+        <p className='border-2  border-rose-200 w-[90%] '></p>
+      </div>
+      <Exercise/>
+     </section>
       
   </section>
 

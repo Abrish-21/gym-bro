@@ -51,7 +51,7 @@ function SearchExercise() {
   return (<>
   <div className=" mt-10 gap-6 px-10 flex flex-row overflow-scroll scrollbar-hide">
   {bodyPart.map((item)=>{
-  return  <div className="flex p-5 gap-10 transform hover:scale-110 ease-in-out">
+  return  <div className="flex p-5 gap-10 duration-300 transform hover:scale-110 ease-in-out">
     <BodyParts item = {item}  />
   </div>
 

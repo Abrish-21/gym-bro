@@ -12,7 +12,7 @@ function NavBar() {
                      to="/">Home</NavLink>
                 </li>
                 <li>
-                    <NavLink className={({isActive})=> `text-black text-2xl ${isActive? "underline underline-offset-4 decoration-rose-600":""}`}   to="/exercise">Exercise</NavLink>
+                    <a className={({isActive})=> `text-black text-2xl ${isActive? "underline underline-offset-4 decoration-rose-600":""}`} href='#exercise'  >Exercise</a>
                 </li>
                
             </div>
