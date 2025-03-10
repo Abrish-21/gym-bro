@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import searchExercise from '../components/SearchExercise'
 import SearchExercise from '../components/SearchExercise'
+import BodyParts from '../components/BodyParts'
+import Users from '../utils/User'
+// import { fetchData } from '../utils/fetchData'
 
+const names = ['abrham', 'james','cole','sami']
 
 
 function Home() {
 const [search, setSearch] = useState('')
 const [bodyPart, setBodyPart] = useState([])
-
 
 
 
@@ -49,6 +52,14 @@ const [bodyPart, setBodyPart] = useState([])
       <section>
        <SearchExercise/>
       </section>
+      {/* <section>
+        <p>This is the bodyPart section</p>
+        {Users.map((item)=>{
+          return  <BodyParts name = {item} />
+          
+        })}
+      </section> */}
+      
   </section>
 
 

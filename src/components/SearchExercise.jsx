@@ -1,31 +1,65 @@
 import React, { useEffect, useState } from 'react'
-import { fetchData, options } from '../utils/fetchData'
+import axios from 'axios'
+import BodyParts from './BodyParts';
+
+const options = {
+  method: 'GET',
+  url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
+  headers: {
+    'x-rapidapi-key': '2a38ad0a95mshf82a7dc033f6db7p1c224bjsne012f6cffc4c',
+    'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
+  }
+};
 
 
 function SearchExercise() {
 
-  const [search, setSearch] = useState('')
+  const [joke, setJoke] = useState([])
   const [bodyPart,setBodyPart] = useState([])
-  const handleSearch = () =>{
-   
-    useEffect(()=>
-    {
-      
-      fetchData( 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',options);
+  
+ const handleSearch = () =>{
 
-      }
-    ,[])
+      useEffect(() => {
+        const exercise = async ()=>
+        {
+          try {
+            const response = await axios.request(options);
+           const  ListAll = response.data
+            console.log(response.data)
+            setBodyPart(ListAll)
+         
+          } catch (error) {
+            console.error(error)
+          }
+
+        }
+        exercise();
+        // console.log(search)
+        
+        
+        
+        
+      }, []); 
+ 
+
     
   }
   handleSearch();
   
-  
-  
 
-
+  
   return (<>
-    <p>THis is the api data:</p>
-    <button onClick={handleSearch}> show data</button>
+  <div className=" mt-10 gap-6 px-10 flex flex-row overflow-scroll scrollbar-hide">
+  {bodyPart.map((item)=>{
+  return  <div className="flex p-5 gap-10 transform hover:scale-110 ease-in-out">
+    <BodyParts item = {item}  />
+  </div>
+
+})}
+
+
+  </div>
+
     
  </> )
 }

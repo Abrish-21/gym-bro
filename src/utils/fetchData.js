@@ -1,24 +1,27 @@
-export const options = {
-  url: 'https://exercisedb.p.rapidapi.com/status',
+
+
+
+
+import React from 'react'
+
+function fetchData() {
+
+  
+ const options = {
     method: 'GET',
+    url: 'https://exercise-db-fitness-workout-gym.p.rapidapi.com/exercise/90_90_Hamstring',
     headers: {
       'x-rapidapi-key': '90daf35750msh11588106a0e0b1bp1061d3jsn141126a69de8',
-      'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
+      'x-rapidapi-host': 'exercise-db-fitness-workout-gym.p.rapidapi.com'
     }
   };
 
 
-export const fetchData = async (url, options) =>{
-  
-  try{
-    const response = await fetch(url, options)
-    const data =  await response.json()
-    console.log(data)
-
-  }
-  catch{
-    console.error()
-
-  }
-
+  return (
+    <div>fetchData</div>
+  )
 }
+
+export default fetchData
+
+
