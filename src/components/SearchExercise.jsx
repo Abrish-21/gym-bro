@@ -25,8 +25,10 @@ function SearchExercise() {
           try {
             const response = await axios.request(options);
            const  ListAll = response.data
+           const filteredData = ListAll.filter((item)=> {
+            return item.includes('a')})
             console.log(response.data)
-            setBodyPart(ListAll)
+            setBodyPart(filteredData)
          
           } catch (error) {
             console.error(error)
@@ -34,12 +36,11 @@ function SearchExercise() {
 
         }
         exercise();
-        // console.log(search)
-        
-        
-        
+        // console.log(search) 
         
       }, []); 
+
+      // setBodyPart('')
  
 
     

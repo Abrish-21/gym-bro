@@ -36,7 +36,7 @@ const [bodyPart, setBodyPart] = useState([])
     
           </div>
         </div>
-        <section className='hidden md:block md:px-14 mt-24 absolute -z-30'>
+        <section className='hidden md:block md:px-14 mt-14 absolute -z-30'>
         <h1 className='text-[210px] text-red-100  -z-20 font-bold  '>Exercise</h1>
       </section>
       </section>
@@ -53,12 +53,14 @@ const [bodyPart, setBodyPart] = useState([])
       <section className='mb-10'>
        <SearchExercise/>
       </section>
-     <section id='exercise' className=' mt-20 flex flex-col gap-10 '>
-      <div className="flex flex-col gap-10 py-10 justify-start items-center ">
+     <section id='exercise' className=' mt-20 flex flex-col '>
+      <div className="flex flex-col gap-10 py-20 justify-start items-center ">
         <p className='text-3xl'>Explore your Exercise</p>
         <p className='border-2  border-rose-200 w-[90%] '></p>
       </div>
-      <Exercise/>
+      <section className='px-10'>
+        <Exercise/>
+      </section>
      </section>
       
   </section>

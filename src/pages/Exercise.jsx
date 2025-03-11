@@ -40,7 +40,7 @@ function Exercise() {
       }, []); 
 
   return (<>
-    <div className="grid grid-cols-1 md:pl-20  md:grid-cols-2 lg:grid-cols-3  ">
+    <div className="grid grid-cols-1 md:pl-3 md:grid-cols-2 gap-10 lg:grid-cols-3   ">
       {
         exercise.map((item)=>{
           return <ExerciseCard name = {item.name} target = {item.target} url ={item.gifUrl}  />
