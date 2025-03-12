@@ -14,10 +14,10 @@ const options = {
 
 function SearchExercise() {
 
-  const [joke, setJoke] = useState([])
+  const [search, setSearch] = useState([])
   const [bodyPart,setBodyPart] = useState([])
   
- const handleSearch = () =>{
+ const handleBodyPart = () =>{
 
       useEffect(() => {
         const exercise = async ()=>
@@ -25,8 +25,7 @@ function SearchExercise() {
           try {
             const response = await axios.request(options);
            const  ListAll = response.data
-           const filteredData = ListAll.filter((item)=> {
-            return item.includes('a')})
+           const filteredData = ListAll
             console.log(response.data)
             setBodyPart(filteredData)
          
@@ -38,14 +37,10 @@ function SearchExercise() {
         exercise();
         // console.log(search) 
         
-      }, []); 
-
-      // setBodyPart('')
- 
-
+      }, [])
     
   }
-  handleSearch();
+  handleBodyPart();
   
 
   

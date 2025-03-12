@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ExerciseCard from '../components/ExerciseCard';
 
-const options = {
+export const exerciseOp = {
   method: 'GET',
   url: 'https://exercisedb.p.rapidapi.com/exercises',
   params: {
@@ -40,15 +40,15 @@ function Exercise() {
       }, []); 
 
   return (<>
-    <div className="grid grid-cols-1 md:pl-3 md:grid-cols-2 gap-10 lg:grid-cols-3   ">
+    {/* <div className="grid grid-cols-1 md:pl-3 md:grid-cols-2 gap-10 lg:grid-cols-3   ">
       {
         exercise.map((item)=>{
           return <ExerciseCard name = {item.name} target = {item.target} url ={item.gifUrl}  />
         })
       }
 
-    </div>
+    </div> */}
   </>)
-}
+}// import { fetch// import { fetchData } from '../utils/fetchData'Data } from '../utils/fetchData'
 
 export default Exercise

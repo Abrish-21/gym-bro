@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 
-
-body{
-
-  background: rgb(246, 242, 242);
+body {
+  background-color: var(--bg-color);
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 10px 10px;
 }
+
+
 
 h1 {
   font-size: 3.2em;

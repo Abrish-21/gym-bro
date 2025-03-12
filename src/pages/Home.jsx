@@ -1,18 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect} from 'react'
 import searchExercise from '../components/SearchExercise'
 import SearchExercise from '../components/SearchExercise'
-import BodyParts from '../components/BodyParts'
-import Users from '../utils/User'
-import Exercise from './Exercise'
-// import { fetchData } from '../utils/fetchData'
+import axios from 'axios'
+import { exerciseOptions } from '../utils/fetchData'
+import ExerciseCard from '../components/ExerciseCard'
+import { exerciseOp } from './Exercise'
 
 const names = ['abrham', 'james','cole','sami']
-
 
 function Home() {
 const [search, setSearch] = useState('')
 const [bodyPart, setBodyPart] = useState([])
+  
 
+  const [exercise,setExercise] = useState([])
+  const searchExercise = async ()=>
+  {
+        try {
+          const response = await axios.request(exerciseOp);
+         const  ListAll = response.data
+         const filteredData = ListAll.filter((item)=> (item.name).includes(search))
+          console.log(response.data)
+          setExercise(filteredData)
+       
+        } catch (error) {
+          console.error(error)
+        }
+  
+      }
+
+
+  
+  searchExercise()
+
+
+
+  
 
 
 
@@ -45,10 +68,11 @@ const [bodyPart, setBodyPart] = useState([])
         <h1 className='text-3xl leading-snug text-gray-900 font-sans font-bold'>Awesome Exercise <br />
          <span className='ml-28'> You</span> <br /> <span className='ml-10'>Should Know</span></h1>
          <div className="flex w-full justify-center">
-          <input className='outline-none border-2 border-gray-300 px-6 py-4 w-3/4' placeholder='Search Exercise' type="text" name="" id="" />
-          <button className='bg-rose-600 px-4 py-2'>Search</button>
+          <input value={search} onChange={(e)=>setSearch(e.target.value)} className='outline-none border-2 border-gray-300 px-6 py-4 w-3/4' placeholder='Search Exercise' type="text" name="" id="" />
+          <button onClick={searchExercise()} className='bg-rose-600 px-4 py-2'>Search</button>
          </div>
       </section>
+      <p>{search}</p>
 
       <section className='mb-10'>
        <SearchExercise/>
@@ -59,7 +83,14 @@ const [bodyPart, setBodyPart] = useState([])
         <p className='border-2  border-rose-200 w-[90%] '></p>
       </div>
       <section className='px-10'>
-        <Exercise/>
+        <div className="grid grid-cols-1 md:pl-3 md:grid-cols-2 gap-10 lg:grid-cols-3   ">
+              {
+                exercise.map((item)=>{
+                  return <ExerciseCard name = {item.name} target = {item.target} url ={item.gifUrl}  />
+                })
+              }
+        
+            </div>
       </section>
      </section>
       
